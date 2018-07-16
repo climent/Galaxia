@@ -16,6 +16,9 @@ public class GalaxiaGui extends PApplet {
   private static final boolean MULTITHREADED = true;
   private static final boolean RESIZEABLE = true;
 
+  private LXModel model;
+  private LXStudio lx;
+
   public static void main(String args[]) {
     PApplet.main(new String[] {"--present", GalaxiaGui.class.getName()});
   }
@@ -28,10 +31,12 @@ public class GalaxiaGui extends PApplet {
     startupInfo();
 
     // Load model
-    LXModel model = new Temple(this);
+    model = new Temple(this);
 
     // Initialize LX
-    LXStudio lx = new LXStudio(this, model, MULTITHREADED);
+    lx = new LXStudio(this, model, MULTITHREADED);
+//    lx.engine.osc.transmitActive.setValue(true);
+//    lx.engine.osc.transmitPort.setValue(1447);
 
     // Configure UI
     lx.ui.setResizable(RESIZEABLE);
@@ -66,6 +71,7 @@ public class GalaxiaGui extends PApplet {
 
   public void draw() {
     // Handled by LXStudio
+    System.out.println(lx.engine.getChannel(0).());
   }
 
   private void startupInfo() {
