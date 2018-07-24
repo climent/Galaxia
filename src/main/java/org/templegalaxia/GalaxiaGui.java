@@ -19,7 +19,7 @@ public class GalaxiaGui extends PApplet {
   private static final boolean RESIZEABLE = true;
 
   public static void main(String args[]) {
-    PApplet.main(new String[] {"--present", GalaxiaGui.class.getName()});
+    PApplet.main(new String[] {GalaxiaGui.class.getName()});
   }
 
   public void settings() {
